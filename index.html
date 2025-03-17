@@ -252,8 +252,18 @@
     <script src="js/cart.js"></script>
     <script src="js/checkout.js"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=places&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYPPZaR8LDSXWFHtWPFDhZhiI_kf3Ht5Q&callback=initMap&libraries=places&v=weekly"
         defer
+        onerror="handleMapError()"
     ></script>
+    <script>
+    function handleMapError() {
+        console.error('Google Maps failed to load');
+        const mapElement = document.getElementById('map');
+        if (mapElement) {
+            mapElement.innerHTML = '<div style="text-align: center; padding: 20px;">ไม่สามารถโหลดแผนที่ได้ กรุณาลองใหม่อีกครั้ง</div>';
+        }
+    }
+    </script>
 </body>
 </html>

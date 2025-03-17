@@ -124,8 +124,13 @@ function saveOrder(orderNumber, orderData) {
 
 // ฟังก์ชันสำหรับ Google Maps
 function initMap() {
-    // ตำแหน่งเริ่มต้น (กรุงเทพฯ)
-    const bangkok = { lat: 13.7563, lng: 100.5018 };
+    try {
+        // แสดงสถานะกำลังโหลด
+        const mapElement = document.getElementById('map');
+        mapElement.innerHTML = '<div style="text-align: center; padding: 20px;">กำลังโหลดแผนที่...</div>';
+
+        // ตำแหน่งเริ่มต้น (กรุงเทพฯ)
+        const bangkok = { lat: 13.7563, lng: 100.5018 };
     
     // สร้างแผนที่
     map = new google.maps.Map(document.getElementById('map'), {
