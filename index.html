@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAVO Coffee - ร้านกาแฟออนไลน์</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>BRAVO Coffee</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">หน้าหลัก</a></li>
+                    <li><a href="#menu">เมนู</a></li>
+                    <li><a href="#about">เกี่ยวกับเรา</a></li>
+                    <li><a href="#contact">ติดต่อ</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="#" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>ความดีด...ส่งตรงถึงบ้านคุณ</h2>
+                <p>สัมผัสประสบการณ์กาแฟระดับพรีเมียมที่คัดสรรมาเพื่อคุณโดยเฉพาะ</p>
+                <a href="#menu" class="btn">สั่งเลย</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">เมนูของเรา</h2>
+            <div class="menu-filter">
+                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="hot">ร้อน</button>
+                <button class="filter-btn" data-filter="cold">เย็น</button>
+                <button class="filter-btn" data-filter="frappe">ปั่น</button>
+            </div>
+            <div class="menu-items" id="menu-container">
+                <!-- เมนูกาแฟจะถูกเพิ่มด้วย JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">เกี่ยวกับเรา</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/image_fx_ (64).jpg" alt="Dali Coffee Story">
+                </div>
+                <div class="about-text">
+                    <h3>ร้านกาแฟบราโวกาแฟดีดทุกเม็ด</h3>
+                    <p>เราคือร้านกาแฟที่มุ่งมั่นในการนำเสนอกาแฟคุณภาพเยี่ยมจากแหล่งปลูกที่ดีที่สุด เมล็ดกาแฟของเราผ่านการคั่วอย่างพิถีพิถันเพื่อให้ได้รสชาติที่สมบูรณ์แบบ</p>
+                    <p>ด้วยประสบการณ์กว่า 10 ปีในวงการกาแฟ เราภูมิใจนำเสนอเมนูที่หลากหลายเพื่อตอบสนองทุกความต้องการของลูกค้า พร้อมบริการจัดส่งถึงบ้านเพื่อให้คุณได้ลิ้มรสกาแฟคุณภาพได้ทุกที่ทุกเวลา</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">ติดต่อเรา</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 ถนนกาแฟ ตำบลหอมกรุ่น อำเภอรสดี จังหวัดกาแฟ 10000</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>099-999-9999</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@dalicoffee.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <p>เปิดทุกวัน 08:00 - 20:00 น.</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="ชื่อ" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="อีเมล" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="ข้อความ" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">ส่งข้อความ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>ตะกร้าสินค้า</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items">
+                    <!-- รายการสินค้าในตะกร้าจะถูกเพิ่มด้วย JavaScript -->
+                </div>
+                <div class="cart-total">
+                    <p>ยอดรวม: <span id="cart-total-price">0</span> บาท</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="clear-cart" class="btn btn-secondary">ล้างตะกร้า</button>
+                <button id="checkout-btn" class="btn">สั่งซื้อ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>ข้อมูลการจัดส่ง</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label for="customer-name">ชื่อ-นามสกุล</label>
+                        <input type="text" id="customer-name" name="customer-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-phone">เบอร์โทรศัพท์</label>
+                        <input type="tel" id="customer-phone" name="customer-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-email">อีเมล</label>
+                        <input type="email" id="customer-email" name="customer-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-address">ที่อยู่</label>
+                        <textarea id="customer-address" name="customer-address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>ตำแหน่งบนแผนที่</label>
+                        <div id="map"></div>
+                        <input type="hidden" id="customer-lat" name="customer-lat">
+                        <input type="hidden" id="customer-lng" name="customer-lng">
+                    </div>
+                    <div class="form-group">
+                        <label>วิธีการชำระเงิน</label>
+                        <div class="payment-options">
+                            <label>
+                                <input type="radio" name="payment-method" value="cash" checked>
+                                <span>เก็บเงินปลายทาง</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="payment-method" value="transfer">
+                                <span>โอนเงิน</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="transfer-info" class="hidden">
+                        <p>โอนเงินมาที่:</p>
+                        <p>ธนาคารกสิกรไทย</p>
+                        <p>เลขที่บัญชี: 123-4-56789-0</p>
+                        <p>ชื่อบัญชี: บริษัท ดาลี่ คอฟฟี่ จำกัด</p>
+                        <div class="form-group">
+                            <label for="payment-slip">แนบสลิปการโอนเงิน</label>
+                            <input type="file" id="payment-slip" name="payment-slip">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">ยืนยันการสั่งซื้อ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>ยืนยันการสั่งซื้อ</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="confirmation-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>ขอบคุณสำหรับการสั่งซื้อ</h3>
+                    <p>คำสั่งซื้อของคุณได้รับการยืนยันเรียบร้อยแล้ว</p>
+                    <p>หมายเลขคำสั่งซื้อ: <span id="order-number"></span></p>
+                    <p>เราจะจัดส่งสินค้าให้คุณโดยเร็วที่สุด</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="back-to-home" class="btn">กลับสู่หน้าหลัก</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>BRAVO Coffee</h2>
+                    <p>กาแฟคุณภาพส่งตรงถึงบ้านคุณ</p>
+                </div>
+                <div class="footer-links">
+                    <h3>ลิงก์ด่วน</h3>
+                    <ul>
+                        <li><a href="#home">หน้าหลัก</a></li>
+                        <li><a href="#menu">เมนู</a></li>
+                        <li><a href="#about">เกี่ยวกับเรา</a></li>
+                        <li><a href="#contact">ติดต่อ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>ติดตามเรา</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Dali Coffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/improved-images.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=places&v=weekly"
+        defer
+    ></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test SVG Images</title>
+    <style>
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .image-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test SVG Images</h1>
+    <div class="image-container">
+        <div class="image-item">
+            <h3>Espresso (SVG Content)</h3>
+            <div id="espresso-svg"></div>
+        </div>
+        <div class="image-item">
+            <h3>Americano (SVG Content)</h3>
+            <div id="americano-svg"></div>
+        </div>
+        <div class="image-item">
+            <h3>Latte (SVG Content)</h3>
+            <div id="latte-svg"></div>
+        </div>
+    </div>
+
+    <script>
+        // Load SVG content from files
+        async function loadSVG(filename, elementId) {
+            try {
+                const response = await fetch(filename);
+                const svgContent = await response.text();
+                document.getElementById(elementId).innerHTML = svgContent;
+            } catch (error) {
+                console.error(`Error loading ${filename}:`, error);
+                document.getElementById(elementId).innerHTML = `<p>Error loading SVG: ${error.message}</p>`;
+            }
+        }
+
+        // Load SVGs
+        loadSVG('images/espresso.jpg', 'espresso-svg');
+        loadSVG('images/americano.jpg', 'americano-svg');
+        loadSVG('images/latte.jpg', 'latte-svg');
+    </script>
+</body>
+</html>
